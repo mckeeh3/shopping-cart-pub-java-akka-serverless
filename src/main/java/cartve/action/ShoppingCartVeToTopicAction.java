@@ -6,35 +6,33 @@
 package cartve.action;
 
 import com.akkaserverless.javasdk.action.ActionCreationContext;
-import com.google.protobuf.Empty;
 
 public class ShoppingCartVeToTopicAction extends AbstractShoppingCartVeToTopicAction {
-
   public ShoppingCartVeToTopicAction(ActionCreationContext creationContext) {
   }
 
   @Override
-  public Effect<Empty> addItem(ShoppingCartVeToTopicOut.AddLineItem addLineItem) {
-    throw new RuntimeException("The command handler for `AddItem` is not implemented, yet");
+  public Effect<ShoppingCartVeActionTopicOut.AddLineItem> addItem(ShoppingCartVeActionTopicOut.AddLineItem addLineItem) {
+    return effects().reply(addLineItem);
   }
 
   @Override
-  public Effect<Empty> changeItem(ShoppingCartVeToTopicOut.ChangeLineItemQuantity changeLineItemQuantity) {
-    throw new RuntimeException("The command handler for `ChangeItem` is not implemented, yet");
+  public Effect<ShoppingCartVeActionTopicOut.ChangeLineItemQuantity> changeItem(ShoppingCartVeActionTopicOut.ChangeLineItemQuantity changeLineItemQuantity) {
+    return effects().reply(changeLineItemQuantity);
   }
 
   @Override
-  public Effect<Empty> removeItem(ShoppingCartVeToTopicOut.RemoveLineItem removeLineItem) {
-    throw new RuntimeException("The command handler for `RemoveItem` is not implemented, yet");
+  public Effect<ShoppingCartVeActionTopicOut.RemoveLineItem> removeItem(ShoppingCartVeActionTopicOut.RemoveLineItem removeLineItem) {
+    return effects().reply(removeLineItem);
   }
 
   @Override
-  public Effect<Empty> checkoutCart(ShoppingCartVeToTopicOut.CheckoutShoppingCart checkoutShoppingCart) {
-    throw new RuntimeException("The command handler for `CheckoutCart` is not implemented, yet");
+  public Effect<ShoppingCartVeActionTopicOut.CheckoutShoppingCart> checkoutCart(ShoppingCartVeActionTopicOut.CheckoutShoppingCart checkoutShoppingCart) {
+    return effects().reply(checkoutShoppingCart);
   }
 
   @Override
-  public Effect<Empty> removeCart(ShoppingCartVeToTopicOut.RemoveShoppingCart removeShoppingCart) {
-    throw new RuntimeException("The command handler for `RemoveCart` is not implemented, yet");
+  public Effect<ShoppingCartVeActionTopicOut.RemoveShoppingCart> removeCart(ShoppingCartVeActionTopicOut.RemoveShoppingCart removeShoppingCart) {
+    return effects().reply(removeShoppingCart);
   }
 }

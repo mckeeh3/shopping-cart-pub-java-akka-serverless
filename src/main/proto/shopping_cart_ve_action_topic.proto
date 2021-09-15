@@ -4,9 +4,8 @@ package cartve.action;
 
 import "akkaserverless/annotations.proto";
 import "google/api/annotations.proto";
-import "google/protobuf/empty.proto";
 
-option java_outer_classname = "ShoppingCartVeToTopicOut";
+option java_outer_classname = "ShoppingCartVeActionTopicOut";
 
 message AddLineItem {
   string cart_id = 1;
@@ -40,7 +39,7 @@ service ShoppingCartVeToTopic {
     type: SERVICE_TYPE_ACTION
   };
 
-  rpc AddItem(AddLineItem) returns (google.protobuf.Empty) {
+  rpc AddItem(AddLineItem) returns (AddLineItem) {
     option (google.api.http) = {
       post: "/ve/cart/{cart_id}/items/add"
       body: "*"
@@ -50,7 +49,7 @@ service ShoppingCartVeToTopic {
     };
   }
 
-  rpc ChangeItem(ChangeLineItemQuantity) returns (google.protobuf.Empty) {
+  rpc ChangeItem(ChangeLineItemQuantity) returns (ChangeLineItemQuantity) {
     option (google.api.http) = {
       put: "/ve/cart/{cart_id}/items/{product_id}/change"
       body: "*"
@@ -60,25 +59,24 @@ service ShoppingCartVeToTopic {
     };
   }
 
-  rpc RemoveItem(RemoveLineItem) returns (google.protobuf.Empty) {
+  rpc RemoveItem(RemoveLineItem) returns (RemoveLineItem) {
     option (google.api.http).put = "/ve/cart/{cart_id}/items/{product_id}/remove";
     option (akkaserverless.method).eventing.out = {
       topic: "ve-shopping-cart"
     };
   }
 
-  rpc CheckoutCart(CheckoutShoppingCart) returns (google.protobuf.Empty) {
+  rpc CheckoutCart(CheckoutShoppingCart) returns (CheckoutShoppingCart) {
     option (google.api.http).put = "/ve/cart/{cart_id}/checkout";
     option (akkaserverless.method).eventing.out = {
       topic: "ve-shopping-cart"
     };
   }
 
-  rpc RemoveCart (RemoveShoppingCart) returns (google.protobuf.Empty) {
+  rpc RemoveCart (RemoveShoppingCart) returns (RemoveShoppingCart) {
     option (google.api.http).put = "/ve/carts/{cart_id}/remove";
     option (akkaserverless.method).eventing.out = {
       topic: "ve-shopping-cart"
     };
   }
 }
-
