@@ -14,7 +14,7 @@ curl -XPOST -d '{
   "cart_id": "{{cartId}}",
   "customer_id": "{{customerId}}",
   "product_id": "{{productId}}",
-  "name": "product name 1",
+  "name": "{{productName}}",
   "quantity": {{quantity}}
 }' https://{{hostname}}/ese/cart/{{cartId}}/items/add -H "Content-Type: application/json"
 

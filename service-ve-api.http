@@ -4,9 +4,9 @@
 @hostname = delicate-sun-6946.us-east1.akkaserverless.app
 @customerId = customer-1
 @cartId = cart-1
-@productId = product-2
-@productName = product name 2
-@quantity = 2
+@productId = product-1
+@productName = product name 1
+@quantity = 1
 
 ### cartve.action.ShoppingCartVeToTopic.AddItem
 
