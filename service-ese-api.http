@@ -1,0 +1,46 @@
+
+### For use with VSCode Rest Client extension
+
+@hostname = delicate-sun-6946.us-east1.akkaserverless.app
+@customerId = customer-1
+@cartId = cart-1
+@productId = product-1
+@productName = product name 1
+@quantity = 1
+
+### cartese.action.ShoppingCartEseTopicOut.AddItem
+
+curl -XPOST -d '{
+  "cart_id": "{{cartId}}",
+  "customer_id": "{{customerId}}",
+  "product_id": "{{productId}}",
+  "name": "product name 1",
+  "quantity": {{quantity}}
+}' https://{{hostname}}/ese/cart/{{cartId}}/items/add -H "Content-Type: application/json"
+
+### cartese.action.ShoppingCartEseTopicOut.ChangeItem
+
+curl -XPUT -d '{
+  "cart_id": "{{cartId}}",
+  "product_id": "{{productId}}",
+  "quantity": {{quantity}}
+}' https://{{hostname}}/ese/cart/{{cartId}}/items/{{productId}}/change -H "Content-Type: application/json"
+
+### cartese.action.ShoppingCartEseTopicOut.CheckoutCart
+
+curl -XPUT -d '{
+  "cart_id": "{{cartId}}"
+}' https://{{hostname}}/ese/cart/{{cartId}}/checkout -H "Content-Type: application/json"
+
+### cartese.action.ShoppingCartEseTopicOut.RemoveCart
+
+curl -XPUT -d '{
+  "cart_id": "{{cartId}}"
+}' https://{{hostname}}/ese/carts/{{cartId}}/remove -H "Content-Type: application/json"
+
+### cartese.action.ShoppingCartEseTopicOut.RemoveItem
+
+curl -XPUT -d '{
+  "cart_id": "{{cartId}}",
+  "product_id": "{{productId}}"
+}' https://{{hostname}}/ese/cart/{{cartId}}/items/{{productId}}/remove -H "Content-Type: application/json"
