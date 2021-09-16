@@ -4,9 +4,9 @@
 @hostname = billowing-wind-7276.us-east1.akkaserverless.app
 @customerId = customer-1
 @cartId = cart-1
-@productId = product-2
-@productName = product name 3
-@quantity = 22
+@productId = product-1
+@productName = product name 1
+@quantity = 1
 
 ### cartese.action.ShoppingCartEseTopicOut.AddItem
 
