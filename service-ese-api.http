@@ -1,7 +1,8 @@
 
 ### For use with VSCode Rest Client extension
 
-@hostname = billowing-wind-7276.us-east1.akkaserverless.app
+# @urlPrefix = https://billowing-wind-7276.us-east1.akkaserverless.app
+@urlPrefix = http://localhost:9000
 @customerId = customer-1
 @cartId = cart-1
 @productId = product-1
@@ -16,7 +17,7 @@ curl -XPOST -d '{
   "product_id": "{{productId}}",
   "name": "{{productName}}",
   "quantity": {{quantity}}
-}' https://{{hostname}}/ese/cart/{{cartId}}/items/add -H "Content-Type: application/json"
+}' {{urlPrefix}}/ese/cart/{{cartId}}/items/add -H "Content-Type: application/json"
 
 ### cartese.action.ShoppingCartEseTopicOut.ChangeItem
 
@@ -24,23 +25,23 @@ curl -XPUT -d '{
   "cart_id": "{{cartId}}",
   "product_id": "{{productId}}",
   "quantity": {{quantity}}
-}' https://{{hostname}}/ese/cart/{{cartId}}/items/{{productId}}/change -H "Content-Type: application/json"
+}' {{urlPrefix}}/ese/cart/{{cartId}}/items/{{productId}}/change -H "Content-Type: application/json"
 
 ### cartese.action.ShoppingCartEseTopicOut.CheckoutCart
 
 curl -XPUT -d '{
   "cart_id": "{{cartId}}"
-}' https://{{hostname}}/ese/cart/{{cartId}}/checkout -H "Content-Type: application/json"
+}' {{urlPrefix}}/ese/cart/{{cartId}}/checkout -H "Content-Type: application/json"
 
 ### cartese.action.ShoppingCartEseTopicOut.RemoveCart
 
 curl -XPUT -d '{
   "cart_id": "{{cartId}}"
-}' https://{{hostname}}/ese/carts/{{cartId}}/remove -H "Content-Type: application/json"
+}' {{urlPrefix}}/ese/carts/{{cartId}}/remove -H "Content-Type: application/json"
 
 ### cartese.action.ShoppingCartEseTopicOut.RemoveItem
 
 curl -XPUT -d '{
   "cart_id": "{{cartId}}",
   "product_id": "{{productId}}"
-}' https://{{hostname}}/ese/cart/{{cartId}}/items/{{productId}}/remove -H "Content-Type: application/json"
+}' {{urlPrefix}}/ese/cart/{{cartId}}/items/{{productId}}/remove -H "Content-Type: application/json"
