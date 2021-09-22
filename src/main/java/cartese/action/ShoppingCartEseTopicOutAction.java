@@ -7,32 +7,38 @@ package cartese.action;
 
 import com.akkaserverless.javasdk.action.ActionCreationContext;
 
+import cartese.action.ShoppingCartEseActionTopicOut.AddLineItem;
+import cartese.action.ShoppingCartEseActionTopicOut.ChangeLineItemQuantity;
+import cartese.action.ShoppingCartEseActionTopicOut.CheckoutShoppingCart;
+import cartese.action.ShoppingCartEseActionTopicOut.RemoveLineItem;
+import cartese.action.ShoppingCartEseActionTopicOut.RemoveShoppingCart;
+
 public class ShoppingCartEseTopicOutAction extends AbstractShoppingCartEseTopicOutAction {
   public ShoppingCartEseTopicOutAction(ActionCreationContext creationContext) {
   }
 
   @Override
-  public Effect<ShoppingCartEseActionTopicOut.AddLineItem> addItem(ShoppingCartEseActionTopicOut.AddLineItem addLineItem) {
+  public Effect<AddLineItem> addItem(AddLineItem addLineItem) {
     return effects().reply(addLineItem);
   }
 
   @Override
-  public Effect<ShoppingCartEseActionTopicOut.ChangeLineItemQuantity> changeItem(ShoppingCartEseActionTopicOut.ChangeLineItemQuantity changeLineItemQuantity) {
+  public Effect<ChangeLineItemQuantity> changeItem(ChangeLineItemQuantity changeLineItemQuantity) {
     return effects().reply(changeLineItemQuantity);
   }
 
   @Override
-  public Effect<ShoppingCartEseActionTopicOut.RemoveLineItem> removeItem(ShoppingCartEseActionTopicOut.RemoveLineItem removeLineItem) {
+  public Effect<RemoveLineItem> removeItem(RemoveLineItem removeLineItem) {
     return effects().reply(removeLineItem);
   }
 
   @Override
-  public Effect<ShoppingCartEseActionTopicOut.CheckoutShoppingCart> checkoutCart(ShoppingCartEseActionTopicOut.CheckoutShoppingCart checkoutShoppingCart) {
+  public Effect<CheckoutShoppingCart> checkoutCart(CheckoutShoppingCart checkoutShoppingCart) {
     return effects().reply(checkoutShoppingCart);
   }
 
   @Override
-  public Effect<ShoppingCartEseActionTopicOut.RemoveShoppingCart> removeCart(ShoppingCartEseActionTopicOut.RemoveShoppingCart removeShoppingCart) {
+  public Effect<RemoveShoppingCart> removeCart(RemoveShoppingCart removeShoppingCart) {
     return effects().reply(removeShoppingCart);
   }
 }

@@ -7,32 +7,38 @@ package cartve.action;
 
 import com.akkaserverless.javasdk.action.ActionCreationContext;
 
+import cartve.action.ShoppingCartVeActionTopicOut.AddLineItem;
+import cartve.action.ShoppingCartVeActionTopicOut.ChangeLineItemQuantity;
+import cartve.action.ShoppingCartVeActionTopicOut.CheckoutShoppingCart;
+import cartve.action.ShoppingCartVeActionTopicOut.RemoveLineItem;
+import cartve.action.ShoppingCartVeActionTopicOut.RemoveShoppingCart;
+
 public class ShoppingCartVeToTopicAction extends AbstractShoppingCartVeToTopicAction {
   public ShoppingCartVeToTopicAction(ActionCreationContext creationContext) {
   }
 
   @Override
-  public Effect<ShoppingCartVeActionTopicOut.AddLineItem> addItem(ShoppingCartVeActionTopicOut.AddLineItem addLineItem) {
+  public Effect<AddLineItem> addItem(AddLineItem addLineItem) {
     return effects().reply(addLineItem);
   }
 
   @Override
-  public Effect<ShoppingCartVeActionTopicOut.ChangeLineItemQuantity> changeItem(ShoppingCartVeActionTopicOut.ChangeLineItemQuantity changeLineItemQuantity) {
+  public Effect<ChangeLineItemQuantity> changeItem(ChangeLineItemQuantity changeLineItemQuantity) {
     return effects().reply(changeLineItemQuantity);
   }
 
   @Override
-  public Effect<ShoppingCartVeActionTopicOut.RemoveLineItem> removeItem(ShoppingCartVeActionTopicOut.RemoveLineItem removeLineItem) {
+  public Effect<RemoveLineItem> removeItem(RemoveLineItem removeLineItem) {
     return effects().reply(removeLineItem);
   }
 
   @Override
-  public Effect<ShoppingCartVeActionTopicOut.CheckoutShoppingCart> checkoutCart(ShoppingCartVeActionTopicOut.CheckoutShoppingCart checkoutShoppingCart) {
+  public Effect<CheckoutShoppingCart> checkoutCart(CheckoutShoppingCart checkoutShoppingCart) {
     return effects().reply(checkoutShoppingCart);
   }
 
   @Override
-  public Effect<ShoppingCartVeActionTopicOut.RemoveShoppingCart> removeCart(ShoppingCartVeActionTopicOut.RemoveShoppingCart removeShoppingCart) {
+  public Effect<RemoveShoppingCart> removeCart(RemoveShoppingCart removeShoppingCart) {
     return effects().reply(removeShoppingCart);
   }
 }
