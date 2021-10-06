@@ -8,7 +8,7 @@ package io.example;
 import com.akkaserverless.javasdk.AkkaServerless;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import cartese.action.ShoppingCartEseTopicOutAction;
+import cartese.action.ShoppingCartEseToTopicAction;
 import cartve.action.ShoppingCartVeToTopicAction;
 
 public final class Main {
@@ -21,7 +21,7 @@ public final class Main {
     // If you prefer, you may remove this and manually register these components in a
     // `new AkkaServerless()` instance.
     return AkkaServerlessFactory.withComponents(
-      ShoppingCartEseTopicOutAction::new,
+      ShoppingCartEseToTopicAction::new,
       ShoppingCartVeToTopicAction::new);
   }
 

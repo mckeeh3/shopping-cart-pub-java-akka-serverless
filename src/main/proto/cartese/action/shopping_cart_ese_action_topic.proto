@@ -34,7 +34,7 @@ message RemoveShoppingCart {
   string cart_id = 1;
 }
 
-service ShoppingCartEseTopicOut {
+service ShoppingCartEseToTopic {
   option (akkaserverless.service) = {
     type: SERVICE_TYPE_ACTION
   };

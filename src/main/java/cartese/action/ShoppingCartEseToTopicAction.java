@@ -13,8 +13,8 @@ import cartese.action.ShoppingCartEseActionTopicOut.CheckoutShoppingCart;
 import cartese.action.ShoppingCartEseActionTopicOut.RemoveLineItem;
 import cartese.action.ShoppingCartEseActionTopicOut.RemoveShoppingCart;
 
-public class ShoppingCartEseTopicOutAction extends AbstractShoppingCartEseTopicOutAction {
-  public ShoppingCartEseTopicOutAction(ActionCreationContext creationContext) {
+public class ShoppingCartEseToTopicAction extends AbstractShoppingCartEseToTopicAction {
+  public ShoppingCartEseToTopicAction(ActionCreationContext creationContext) {
   }
 
   @Override
